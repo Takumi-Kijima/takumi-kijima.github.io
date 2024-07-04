@@ -1,92 +1,123 @@
 ---
 ---
 
+<head>
+    <style>
+        /* Ensure the whole body has the correct background color */
+        body {
+            background-color: white !important;
+            color: black; /* Default text color */
+        }
 
-<style>
-.btn{
-    margin-bottom:5px;
-    padding-top:0px;
-    padding-bottom:0px;
-    padding-left:15px;
-    padding-right:15px;
-    height:20px
-}
+        /* Customize hyperlinks */
+        a {
+            color: blue; /* Default hyperlink color */
+            text-decoration: none; /* Remove underline from hyperlinks */
+        }
 
-pre{
-    white-space: pre-wrap;  
-    white-space: -moz-pre-wrap; 
-    white-space: -pre-wrap; 
-    white-space: -o-pre-wrap; 
-    word-wrap: break-word; 
-    width:100%; overflow-x:auto;
-}
-</style>
+        a:hover {
+            color: darkblue; /* Hyperlink color on hover */
+        }
 
+        /* Button styles */
+        .btn {
+            margin-bottom: 5px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            padding-left: 15px;
+            padding-right: 15px;
+            height: 20px;
+        }
 
-<div class="text-justify">{{reference}}</div>
+        /* Preformatted text styles */
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            width: 100%;
+            overflow-x: auto;
+            color: black; /* Ensure text color is black */
+        }
 
-<!-- You can use the below to make your name bold -->
-<!-- {{reference | replace_first: 'Bryngelson, S. H.', '<b>Bryngelson, S. H.</b>' | replace_first: 'Bryngelson, S.', '<b>Bryngelson, S.</b>' }}</div> -->
+        /* Specific styles for toggleable sections */
+        div[id^="a"], div[id^="b"] {
+            background-color: white !important; /* Ensure white background */
+            color: black !important; /* Ensure black text */
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: none; /* Initially hidden */
+            border: 1px solid red; /* Debugging: Add border to see the element */
+        }
+    </style>
+</head>
 
-{% assign bibtest = false %}
-{% if entry.file %}
-{% assign bibfile = "/papers/" | append: entry.file %}
-{% for file in site.static_files %}
-  {% if file.path contains bibfile %}
-   {% assign bibtest = true %}
-  {% endif %}
-{% endfor %}
-{% endif %}
+<body>
+    <div class="text-justify">{{reference}}</div>
 
-{% if bibtest %}
-<a href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank"><button class="btn btn-success btm-sm">PDF</button></a>
-{% endif %}
+    <!-- You can use the below to make your name bold -->
+    <!-- {{reference | replace_first: 'Bryngelson, S. H.', '<b>Bryngelson, S. H.</b>' | replace_first: 'Bryngelson, S.', '<b>Bryngelson, S.</b>' }}</div> -->
 
-{% if entry.doi %}
-{% if entry.type == 'unpublished' %}
-<a href="{{ entry.doi | prepend: 'https://arxiv.org/abs/' }}" target="_blank"><button class="btn btn-primary btm-sm">ARXIV</button></a>
-{% else %}
-<a href="{{ entry.doi | prepend: 'http://doi.org/' }}" target="_blank"><button class="btn btn-primary btm-sm">DOI</button></a>
-{% endif %}
-{% endif %}
+    {% assign bibtest = false %}
+    {% if entry.file %}
+    {% assign bibfile = "/papers/" | append: entry.file %}
+    {% for file in site.static_files %}
+    {% if file.path contains bibfile %}
+    {% assign bibtest = true %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
 
-{% if entry.type == 'unpublished' or entry.type == 'article' or  entry.type == 'thesis' or entry.type == 'inproceedings' or entry.type == 'report' %}
-<button class="btn btn-danger btm-sm"  onclick="toggleBibtex{{entry.key}}()">BIB</button>
-{% endif %}
+    {% if bibtest %}
+    <a href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank"><button class="btn btn-success btm-sm">PDF</button></a>
+    {% endif %}
 
-{% if entry.abstract %}
-<button class="btn btn-warning btm-sm"  onclick="toggleAbstract{{entry.key}}()">ABSTRACT</button>
-{% endif %}
+    {% if entry.doi %}
+    {% if entry.type == 'unpublished' %}
+    <a href="{{ entry.doi | prepend: 'https://arxiv.org/abs/' }}" target="_blank"><button class="btn btn-primary btm-sm">ARXIV</button></a>
+    {% else %}
+    <a href="{{ entry.doi | prepend: 'http://doi.org/' }}" target="_blank"><button class="btn btn-primary btm-sm">DOI</button></a>
+    {% endif %}
+    {% endif %}
 
-{% if entry.abstract %}
-<div id="a{{entry.key}}" style="display: none; background-color:black; border-radius:5px; padding:10px; margin-bottom:20px;">
-<pre>{{ entry.bibtex | remove: "entry.abstract" }}</pre>
-</div>
-{% else %}
-<div id="a{{entry.key}}" style="display: none; background-color:black; border-radius:5px; padding:10px; margin-bottom:20px;">
-<pre>{{ entry.bibtex }}</pre>
-</div>
-{% endif %}
+    {% if entry.type == 'unpublished' or entry.type == 'article' or entry.type == 'thesis' or entry.type == 'inproceedings' or entry.type == 'report' %}
+    <button class="btn btn-danger btm-sm" onclick="toggleBibtex{{entry.key}}()">BIB</button>
+    {% endif %}
 
-<div id="b{{entry.key}}" style="display: none; background-color:black; border-radius:5px; padding:10px; margin-bottom:20px;">
-<pre>{{entry.abstract}}</pre>
-</div>
+    {% if entry.abstract %}
+    <button class="btn btn-warning btm-sm" onclick="toggleAbstract{{entry.key}}()">ABSTRACT</button>
+    {% endif %}
 
-<script>
-function toggleBibtex{{entry.key}}(parameter) {
-    var x= document.getElementById('a{{entry.key}}');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-    }
-}
-function toggleAbstract{{entry.key}}(parameter) {
-    var x= document.getElementById('b{{entry.key}}');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-    }
-}
-</script>
+    <div id="a{{entry.key}}">
+        <pre>{{ entry.bibtex | remove: "entry.abstract" }}</pre>
+    </div>
+
+    <div id="b{{entry.key}}">
+        <pre>{{ entry.abstract }}</pre>
+    </div>
+
+    <script>
+        function toggleBibtex{{entry.key}}() {
+            var x = document.getElementById('a{{entry.key}}');
+            var y = document.getElementById('b{{entry.key}}');
+            
+            if (x.style.display === 'none') {
+                x.style.display = 'block';
+                y.style.display = 'none';
+            } else {
+                x.style.display = 'none';
+            }
+        }
+
+        function toggleAbstract{{entry.key}}() {
+            var x = document.getElementById('b{{entry.key}}');
+            var y = document.getElementById('a{{entry.key}}');
+            
+            if (x.style.display === 'none') {
+                x.style.display = 'block';
+                y.style.display = 'none';
+            } else {
+                x.style.display = 'none';
+            }
+        }
+    </script>
+</body>

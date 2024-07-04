@@ -11,3 +11,45 @@ $baseurl: "{{ site.url }}{{ site.baseurl }}";
 // @import "bootstrap_customization";
 @import "bootstrap";
 @import "SHB_css";
+/* main.scss */
+
+/* Change background color to white and text color to black */
+body {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+}
+
+/* Change hyperlink colors */
+a {
+    color: blue; /* Change link color to blue */
+}
+
+a:hover {
+    color: darkblue; /* Optionally, change hover color to dark blue */
+}
+
+/* Update specific elements if needed */
+.navbar {
+    background-color: white; /* Change navbar background color if needed */
+    color: black; /* Change navbar text color if needed */
+}
+
+/* Sidebar styles */
+.jumbotron {
+    background-color: #f0f0f0; /* Change background to light gray */
+    color: black; /* Change text color to black */
+    padding: 15px; /* Optional: Add some padding for better layout */
+    border: 1px solid #ccc; /* Optional: Add a border */
+}
+
+.jumbotron h4,
+.jumbotron p,
+.jumbotron a {
+    color: black; /* Ensure all text elements within jumbotron are black */
+}
+
+/* Change icon colors within jumbotron to light black */
+.jumbotron a i {
+    color: #333; /* Change icon color to light black */
+}

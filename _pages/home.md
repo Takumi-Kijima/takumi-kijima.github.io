@@ -5,28 +5,11 @@ sitemap: false
 permalink: /
 ---
 
-### Welcome!
+### About Me
 
-Theoretical physics is a branch of physics that focuses on the development of mathematical models and theories to understand and explain natural phenomena.
-It plays a crucial role in our understanding of the fundamental laws of the universe and the fundamental particles that make up all matter.
-Research in theoretical physics helps us to make predictions about how the universe works and to test these predictions through experiments.
-It also helps us to understand the fundamental principles that govern the behavior of matter and energy, and to explore the limits of our current knowledge.
-Theoretical physics helps us to make progress in a wide range of fields, including cosmology, particle physics, and quantum mechanics, and it has led to many important discoveries and technological innovations.
-
-<div class="container">
-<div class="row">
-<center>
-<img src="{{ site.url }}{{ site.baseurl }}/images/banner.jpg" width="100%"/><br/>
-Examples of Feynman diagrams. <br/>
-Feynman R., The theory of positrons. <i>Phys. Rev.</i> (1949)
-</center>
-</div>
-</div>
+I am a PhD student in Mathematical Sciences at Rutgers University Newark working with [Prof. Patrick Shafto](https://patrickshafto.com/) at [Shafto Lab](https://shaftolab.com/) since Aug. 2024.  <br/>
 <br/>
-
-### About me
-
-I am a physicist working in the field of quantum mechanics and quantum electrodynamics.
-I received my undergraduate degree in physics from the Massachusetts Institute of Technology (MIT) in 1939 and went on to earn my PhD from Princeton University in 1942.
-After completing my doctoral studies, I worked on the Manhattan Project, where I helped develop the first atomic bombs.
-After the war, I returned to academia, holding teaching and research positions at Cornell and now at the California Institute of Technology.
+Formerly, I had worked on Multi-Agent Reinforcement Learning under sequential social dilemmas with Dr. Taro Toyoizumi at [Lab for Neural Computation and Adaptation](https://toyoizumilab.riken.jp/) at [RIKEN Center for Brain Science](https://cbs.riken.jp/en/) from May 2022 to Aug. 2024.  <br/>
+Additionally, I had worked on fMRI data analysis with [Dr. Junichi Chikazoe](https://scholar.google.com/citations?user=jlB0TpIAAAAJ&hl=en) at [Araya Inc.](https://research.araya.org/) from Dec. 2021 to Aug. 2024.  
+<br/>
+Prior to that, I had studied for an MS in Statistics and worked as a Teaching Assistant at Miami University from Aug. 2019 to May 2021. I received my BS in Mathematics from Ohio Northern University in 2019.
