@@ -28,9 +28,8 @@ contact: >
   <a href="https://github.com/sbryngelson/academic-website-template"><i class="fa fa-github fa-1x"></i> Use this site as a template!</a>
 
 # Pages shown in navbar
-# Pages shown in navbar
-#nav_pages:
-#  - name: about
+nav_pages:
+#  - name: publications
   
 include:
   - .htaccess
