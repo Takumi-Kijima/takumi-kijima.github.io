@@ -17,11 +17,20 @@
   <link rel="preconnect" href="https://f.vimeocdn.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+  {% if jekyll.environment == 'production' %}
+  {% include analytics.html %}
+  {% endif %}
 
-{% if jekyll.environment == 'production' %}
-{% include analytics.html %}
-{% endif %}
+  {% include mathjax.html %}
 
-{% include mathjax.html %}
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6F36BDLSM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-Q6F36BDLSM');
+  </script>
+  <!-- End Google Analytics -->
 </head>
