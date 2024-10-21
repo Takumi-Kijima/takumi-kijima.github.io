@@ -1,10 +1,12 @@
 # Site settings
 title: Takumi Kijima
-email: takumi.kijima.jp@gmail.com
+email: takumi.kijima.jp@rutgers.edu
 description: Academic webpage of Takumi Kijima
 baseurl: ""
 url: ""
 twitter: https://x.com/TakumiKijima_en
+linkedin: "https://www.linkedin.com/in/takumi-kijima/"
+
 
 # Google analytics ID: Uncomment and your own, if you like
 # google_analytics: XX
